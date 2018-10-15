@@ -1,0 +1,388 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     PRE-REGISTRO
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+    <!-- <h2 class="centerIMG">  SESSION
+        {{ session.GX_USUARIOSID }}  
+  {{ dependencias.PROGRAMAID }} </h2> -->
+
+
+<!-- CODIGO qr -->
+<button ion-button color="danger" (click)="barcodeScanner()" *ngIf="fotos">OBTENER DATOS DE QR</button>
+
+<!-- end codigo qr -->
+    
+          
+
+       
+      <br><br>
+  <h2 class="centerIMG">  componente: {{miComponente}}</h2>
+
+
+  <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>NOMBRE:</b>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="account.NOMBRE" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>APELLIDO PATERNO:</b>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="account.PRIMER_APELLIDO" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>APELLIDO MATERNO:</b>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="account.SEGUNDO_APELLIDO" name="name"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar" item-start style="color: #199997"></ion-icon> <b>FECHA NACIMIENTO:</b>
+      </ion-label>
+      <ion-input type="date" [(ngModel)]="account.FECHA_NACIMIENTO" name="name"></ion-input> 
+        <ion-datetime displayFormat="D MM YYYY" min="1900" max="2050" [(ngModel)]="account.FECHA_NACIMIENTO"></ion-datetime>
+    </ion-item> 
+
+    <ion-item>
+       <ion-label  > 
+      <b> ESTADO CIVIL:</b>
+    </ion-label>
+    <ion-select [(ngModel)]="account.estado_civil">
+ 
+          <ion-option [value]="1"  > SOLTERO (A)</ion-option>
+          <ion-option [value]="2"  > CASADO (A)</ion-option>
+          <ion-option [value]="3"  >VIUDO (A) </ion-option>
+          <ion-option [value]="4"  >DIVORCIADO (A) </ion-option>
+          <ion-option [value]="5"  > AMASIATO (UNION LIBRE)</ion-option>
+          <ion-option [value]="6"  >SEPARADO (A) </ion-option>
+          <ion-option [value]="7"  > CONCUBINATO</ion-option>
+          <ion-option [value]="8"  >OTRO </ion-option>
+          <ion-option [value]="0"  >NINGUNO </ion-option>
+      
+
+    </ion-select>
+  </ion-item> 
+  <ion-item>
+      <ion-label  > 
+     <b> GRADO DE ESTUDIOS:</b>
+   </ion-label>
+   <ion-select [(ngModel)]="account.estudio">
+
+         <ion-option [value]="0"  >  SIN ESPECIFICAR</ion-option>
+         <ion-option [value]="5"  >NINGUNO </ion-option>
+         <ion-option [value]="9"  > PREESCOLAR</ion-option>  
+         <ion-option [value]="1"  > PRIMARIA</ion-option>
+         <ion-option [value]="2"  >SECUNDARIA </ion-option>
+         <ion-option [value]="3"  >BACHILLERATO, PREPARATORIA O EQUIVALENTE </ion-option>
+         <ion-option [value]="4"  >LICENCIATURA O EQUIVALENTE</ion-option> 
+         <ion-option [value]="6"  >TECNICO </ion-option>
+         <ion-option [value]="7"  > MAESTRIA</ion-option> 
+         <ion-option [value]="8"  > DOCTORADO</ion-option>  
+         <ion-option [value]="10"  > EDUCACION ESPECIAL</ion-option>   
+ 
+   </ion-select>
+ </ion-item> 
+ 
+    <!-- <button ion-button full (click)="scan()">scanner</button> -->
+
+
+
+  <ion-grid>
+    <ion-row  >
+    
+
+         
+
+      
+      <ion-col (click)="ine1s()" *ngIf="!ine1" >
+        <div><img src="assets/img/ine1.jpg" width="60px" height="80px"   class="centerIMG" ></div>
+        <span class="centerIMG">COPIA de INE/IFE</span>
+      </ion-col>
+      <ion-col   *ngIf="ine1">
+        <div><img  [src]="ine1"  width="60px" height="80px" class="centerIMG" ></div> 
+        <span class="centerIMG">COPIA INE/IFE agregado   </span>
+
+      </ion-col>
+      <ion-col (click)="ine2s()" *ngIf="!ine2">
+        <div><img src="assets/img/ine2.jpg"  width="60px" height="80px" class="centerIMG"></div> 
+        <span class="centerIMG">COPIA INE/IFE Reverso</span>
+
+      </ion-col>
+      <ion-col  *ngIf="ine2">
+        <div><img  [src]="ine2" width="60px" height="80px" class="centerIMG" ></div> 
+        <span class="centerIMG">COPIA INE/IFE Reverso agregado</span>
+
+      </ion-col>
+    </ion-row> 
+  </ion-grid> 
+
+  <ion-grid>
+      <ion-row  >
+        <ion-col (click)="domicilios()" *ngIf="!domicilio" >
+          <div><img src="assets/img/images.jpg" width="60px" height="80px"   class="centerIMG" ></div>
+          <span class="centerIMG">DOMICILIO</span>
+        </ion-col>
+        <ion-col   *ngIf="domicilio">
+          <div><img  [src]="domicilio"  width="60px" height="80px" class="centerIMG" ></div> 
+          
+          <span class="centerIMG">DOMICILIO agregado</span>
+  
+        </ion-col>
+        <ion-col (click)="curps()" *ngIf="!curp">
+          <div><img src="assets/img/descarga.jpg"  width="60px" height="80px" class="centerIMG"></div> 
+          <span class="centerIMG">CUPR</span>
+  
+        </ion-col>
+        <ion-col  *ngIf="curp">
+          <div><img  [src]="curp" width="60px" height="80px" class="centerIMG" ></div> 
+          <span class="centerIMG">CUPR Reverso agregado</span>
+  
+        </ion-col>
+      </ion-row> 
+    </ion-grid> 
+
+    <ion-grid>
+        <ion-row  >
+          <ion-col (click)="furs()" *ngIf="!fur" >
+            <div><img src="assets/img/images.jpg" width="60px" height="80px"   class="centerIMG" ></div>
+            <span class="centerIMG">FUR</span>
+          </ion-col>
+          <ion-col   *ngIf="fur">
+            <div><img  [src]="fur"  width="60px" height="80px" class="centerIMG" ></div> 
+            
+            <span class="centerIMG">FUR agregado</span>
+    
+          </ion-col>
+         
+        </ion-row> 
+      </ion-grid> 
+  <button ion-button color="danger" (click)="guardar()">guardar</button>
+  <button ion-button color="danger" (click)="select()" *ngIf="fotos">subir</button>
+
+   
+ 
+
+<!-- 
+     <ion-grid>
+        <ion-row  >
+          <ion-col   >
+            <div>Nombres</div>
+           
+          </ion-col>
+          <ion-col   >
+              <div>A-Paterno</div>
+          </ion-col>
+          <ion-col > 
+              <div>A-Materno</div>
+
+          </ion-col>
+          <ion-col >
+              <div>Fecha</div> 
+          </ion-col>
+          <ion-col >
+              <div>Folio</div> 
+          </ion-col>
+          <ion-col >
+            <div>INE</div> 
+        </ion-col>
+        <ion-col >
+            <div>user</div> 
+        </ion-col>
+        <ion-col >
+            <div>PROGRAMAID</div> 
+        </ion-col>
+        </ion-row> 
+      
+    <div *ngFor="let sql of names">  
+     {{sql}}
+      <ion-row  >
+          <ion-col   >
+            <div>  {{sql.nombre}} </div>
+           
+          </ion-col>
+          <ion-col   >
+              <div>  {{sql.ap1}} </div>
+          </ion-col>
+          <ion-col > 
+              <div>  {{sql.ap2}} </div>
+
+          </ion-col>
+          <ion-col >
+              <div>  {{sql.fecha}} </div> 
+          </ion-col>
+         
+          <ion-col >
+              <div>  {{sql.folio}} </div> 
+          </ion-col> 
+          <ion-col >
+              <div>  {{sql.usuario}} </div> 
+          </ion-col> 
+          <ion-col >
+              <div>  {{sql.programa}} </div> 
+          </ion-col> 
+          <ion-col >
+              <div>  {{sql. folio}} ,{{sql.ife}}  ,{{sql.ife2}} ,{{sql.domicilio}} ,{{sql.curp}} ,{{sql.fur}} ,{{sql.ifename}}  ,{{sql.ife2name}} ,{{sql.domicilioname}} ,{{sql.curpname}} , {{sql.furname}} </div> 
+          </ion-col> 
+         
+  
+          <ion-col >
+
+
+             
+            <div>   
+               <img src="{{sql.ife}}" width="60px" height="80px"   class="centerIMG" > 
+
+              </div> 
+        </ion-col>
+        </ion-row> 
+
+    </div>
+ 
+
+  </ion-grid>  -->
+
+<!-- 
+  <ion-grid>
+      <ion-row  >
+        <ion-col   >
+          <div>url</div>
+         
+        </ion-col>
+        <ion-col   >
+            <div>folio</div>
+        </ion-col>
+       
+      </ion-row>  
+    
+ 
+
+  <div *ngFor="let f of fotos">  
+    
+
+
+      <ion-row  >
+          <ion-col   >
+            <div>  {{f.url}}  
+              <img src="f.url"> 
+            </div>
+            <div><img  [src]="f.url"  width="60px" height="80px" class="centerIMG" ></div> 
+           
+          </ion-col>
+          <ion-col   >
+              <div>  {{f.folio}} </div>
+          </ion-col>
+
+         
+         
+           
+           
+        </ion-row> 
+
+    </div>
+
+</ion-grid> -->
+
+    <!-- <button ion-button (click)="saveData()">Insert</button>
+    <button ion-button (click)="findNames()">Select Names</button>
+    <button ion-button color="danger" (click)="removeData()">Drop Table</button> -->
+    <!-- <h1 *ngIf="names">Nomes:</h1>
+    <ng-template *ngFor="let item of names">
+      <p>{{ item }}</p>
+    </ng-template> -->
+  
+    <!-- <h2>Resposta do insert:</h2>
+    <p>{{ insert_res }}</p>
+  
+    <h2>Resposta do select:</h2>
+    <p>{{ select_res }}</p>
+  
+    <h2>Valor da variável nomes:</h2>
+    <p>{{ names_value }}</p>-->
+ 
+     <!-- <ion-item>
+      <ion-label stacked>From</ion-label>
+      <ion-input [(ngModel)]="letterObj.from"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>To</ion-label>
+      <ion-input [(ngModel)]="letterObj.to"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Text</ion-label>
+      <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
+    </ion-item>
+   
+    <button ion-button full (click)="createPdf()">Create PDF</button>
+    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>  -->
+   
+  <!-- <button ion-button full (click)="scan()">scanner</button>
+  <button ion-button full (click)="getlocalizacion()">getlocalizacion</button>
+
+  <button ion-button full (click)="createDatabase()">createDatabase</button>
+  <button ion-button full (click)="createTable()">createTable</button>
+  <button ion-button full (click)="getAll()">getAll</button>
+  <button ion-button full (click)="create()">create</button>
+  
+  
+  
+   
+   
+  <button ion-button full (click)="takePhoto()" >
+    
+    <ion-icon name="camera"></ion-icon>Take Photo
+    </button> --> 
+  
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col col-6 >
+          <ion-card class="block">
+          <ion-icon  name="trash" class="deleteIcon"></ion-icon>
+          <img src="someimage.png" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+
+    <!-- <ion-col col-6  >
+      <ion-card class="block">
+        <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+        <img [src]="base64Image" *ngIf="base64Image" />
+        
+      </ion-card>
+</ion-col> -->
+
+
+
+ 
+ 
+ <!-- <div *ngIf="lastImage">
+    <img src="{{pathForImage(lastImage)}}" style="width: 100%">
+ </div> -->
+   
+    
+  </ion-content>
+   
+  <!-- <ion-footer>
+    <ion-toolbar color="primary">
+      <ion-buttons>
+        <button ion-button icon-left (click)="presentActionSheet()">
+          <ion-icon name="camera"></ion-icon>Select Image
+        </button>
+        <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+          <ion-icon name="cloud-upload"></ion-icon>Upload
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer> -->

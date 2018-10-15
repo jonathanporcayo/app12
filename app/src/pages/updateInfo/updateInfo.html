@@ -1,0 +1,388 @@
+<ion-header color="dark">
+
+  <ion-navbar color="dark">
+    <ion-title>Info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-card>
+
+
+    <section class="bg-primarydss">
+
+      <br>
+      <ion-avatar item-start style="  margin: auto;  width: 50%;   padding: 10px;   width: 150px;  height: 150px;">
+        <img src="assets/img/avatar.png">
+      </ion-avatar>
+      <br><br>
+
+
+    </section>
+    <h2 style=" text-align:center"> {{ items.PRIMER_APELLIDO }} {{ items.SEGUNDO_APELLIDO }} {{ items.NOMBRE }}</h2>
+
+
+
+   
+  
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label floating *ngIf="account.CALLE">
+          <ion-icon name="home" item-start style="color: #199997"></ion-icon> <b>CALLE:</b>
+        </ion-label>
+        <ion-label floating *ngIf="!account.CALLE">
+          <ion-icon name="home" item-start style="color: #950000"></ion-icon> <b>CALLE ES REQUERIDO:</b>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="account.CALLE" name="CALLE" #C (ionChange)="onChange()"></ion-input>
+        <ion-label *ngIf="account.CALLEmessage" style="color: #950000">{{ account.CALLEmessage }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating *ngIf="account.ENTRE_CALLE">
+          <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+          <b> ENTRE CALLE:</b>
+        </ion-label>
+        <ion-label floating *ngIf="!account.ENTRE_CALLE">
+          <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+          <b>ENTRE CALLE ES REQUERIDO:</b>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="account.ENTRE_CALLE" name="ENTRE_CALLE" #C (ionChange)="onChange()"></ion-input>
+        <ion-label *ngIf="account.ENTRE_CALLEmessage" style="color: #950000">{{ account.ENTRE_CALLEmessage }}</ion-label>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating *ngIf="account.Y_CALLE">
+          <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+          <b>Y CALLE:</b>
+        </ion-label>
+        <ion-label floating *ngIf="!account.Y_CALLE">
+          <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+          <b> Y CALLE ES REQUERIDO:</b>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="account.Y_CALLE" name="Y_CALLE" #C (ionChange)="onChange()"></ion-input>
+        <ion-label *ngIf="account.Y_CALLEmessage" style="color: #950000">{{ account.Y_CALLEmessage }}</ion-label>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label floating *ngIf="account.NUM_EXT">
+                <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+                <b>N° EXTERIOR:</b>
+              </ion-label>
+              <ion-label floating *ngIf="!account.NUM_EXT">
+                <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+                <b> N° EXTERIOR ES REQUERIDO:</b>
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="account.NUM_EXT" name="NUM_EXT" #C (ionChange)="onChange()"></ion-input>
+              <ion-label *ngIf="account.NUM_EXTmessage" style="color: #950000">{{ account.NUM_EXTmessage }}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label floating *ngIf="account.NUM_INT">
+                <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+                <b>N° INTERIOR:</b>
+              </ion-label>
+              <ion-label floating *ngIf="!account.NUM_INT">
+                <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+                <b> N° INTERIOR ES REQUERIDO:</b>
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="account.NUM_INT" name="NUM_INT" #C (ionChange)="onChange()"></ion-input>
+              <ion-label *ngIf="account.NUM_INTmessage" style="color: #950000">{{ account.NUM_INTmessage }}</ion-label>
+
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <ion-label floating *ngIf="account.COLONIA">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+            <b>COLONIA:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.COLONIA">
+            <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+            <b> COLONIA ES REQUERIDO:</b>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="account.COLONIA" name="COLONIA" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.COLONIAmessage" style="color: #950000">{{ account.COLONIAmessage }}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating *ngIf="account.OTRA_REFERENCIA">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+            <b>OTRA_REFERENCIA:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.OTRA_REFERENCIA">
+            <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+            <b> OTRA_REFERENCIA ES REQUERIDO:</b>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="account.OTRA_REFERENCIA" name="OTRA_REFERENCIA" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.OTRA_REFERENCIAmessage" style="color: #950000">{{ account.OTRA_REFERENCIAmessage }}</ion-label>
+        </ion-item>
+
+
+
+        <!-- <ion-item>
+            <ion-label floating *ngIf="account.LOCALIDAD">
+              <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+              <b> LOCALIDAD:</b>
+            </ion-label>
+            <ion-label floating *ngIf="!account.LOCALIDAD">
+              <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+              <b> LOCALIDAD ES REQUERIDO:</b>
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="account.LOCALIDAD" name="LOCALIDAD"></ion-input>
+          </ion-item> -->
+        <ion-item>
+
+          <ion-label floating *ngIf="account.CVE_ENTIDAD_FEDERATIVA">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+            <b> ENTIDAD FEDERATIVA:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.CVE_ENTIDAD_FEDERATIVA && account.CVE_ENTIDAD_FEDERATIVA==0 ">
+            <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+            <b> ENTIDAD FEDERATIVA ES REQUERIDO:</b>
+          </ion-label> <br>
+          <ion-select [(ngModel)]="account.CVE_ENTIDAD_FEDERATIVA">
+
+            <div *ngFor="let key of entidades"> 
+              <div *ngIf="account.CVE_ENTIDAD_FEDERATIVA   && account.CVE_ENTIDAD_FEDERATIVA == key.CVE_ENTIDAD_FEDERATIVA  ">
+                <ion-option [value]="key.CVE_ENTIDAD_FEDERATIVA" [selected]="account.CVE_ENTIDAD_FEDERATIVA == key.CVE_ENTIDAD_FEDERATIVA">{{key.ENTIDAD_FEDERATIVA}}</ion-option>
+              </div>
+            </div>
+
+          </ion-select>
+        </ion-item>
+
+
+        <!-- <ion-item  *ngIf="   account.CVE_ENTIDAD_FEDERATIVA || account.CVE_ENTIDAD_FEDERATIVA == 0  ">
+              <ion-label floating *ngIf="account.CVE_MUNICIPIO">
+                  <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+                  <b> MUNICIPIO:</b>
+                </ion-label>
+                <ion-label floating *ngIf="!account.CVE_MUNICIPIO">
+                  <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+                  <b> MUNICIPIO ES REQUERIDO:</b>
+                </ion-label> <br>
+              <ion-select [(ngModel)]="account.CVE_MUNICIPIO"> 
+  
+                  <div *ngFor="let municipio of municipios  ">
+                      <div  *ngIf="!account.CVE_MUNICIPIO     ">
+                          <ion-option   [value]="municipio.CVE_MUNICIPIO">{{municipio.MUNICIPIO}}</ion-option>
+                      </div>
+                  </div>
+  
+                 
+      
+                <div *ngFor="let municipio of municipios">
+                    <div  *ngIf="account.CVE_MUNICIPIO   && account.CVE_ENTIDAD_FEDERATIVA ==  municipio.CVE_ENTIDAD_FEDERATIVA &&  account.CVE_ENTIDAD_FEDERATIVA== municipio.CVE_ENTIDAD_FEDERATIVA  ">
+                      <ion-option [value]="municipio.CVE_MUNICIPIO"   [selected]="account.CVE_ENTIDAD_FEDERATIVA ==  municipio.CVE_ENTIDAD_FEDERATIVA"  >{{municipio.MUNICIPIO}}</ion-option>
+                  </div>
+                </div>
+  
+              </ion-select>
+            </ion-item> -->
+
+
+        <ion-item>
+          <ion-label floating *ngIf="account.CODIGO_POSTAL">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+            <b>CODIGO POSTAL:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.CODIGO_POSTAL">
+            <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+            <b> CODIGO POSTAL ES REQUERIDO:</b>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="account.CODIGO_POSTAL" name="CODIGO_POSTAL" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.CODIGO_POSTALmessage" style="color: #950000">{{ account.CODIGO_POSTALmessage }}</ion-label> 
+        </ion-item>
+
+     
+      
+            <ion-item *ngIf="account.CODIGO_POSTAL "  #C (ionChange)="onChange()">
+                <ion-label floating *ngIf= "account.CVE_LOCALIDAD !=null">
+                  <ion-icon name="home" item-start style="color: #199997" #C (ionChange)="onChange()"></ion-icon>
+                  <b> LOCALIDAD:</b>
+                </ion-label>
+
+               
+                
+                <ion-label floating *ngIf="account.CVE_LOCALIDAD == null ">
+                  <ion-icon name="home" item-start style="color: #950000" #C (ionChange)="onChange()"></ion-icon>
+                  <b> LOCALIDAD ES REQUERIDO:</b>
+                </ion-label>
+               
+               
+ 
+                <br>    
+
+                <!-- <ion-select [(ngModel)]="account.CVE_LOCALIDADS" (change)="onChange()" > 
+                  <div *ngFor="let localidade of cp "> 
+                     
+                    <div *ngIf="account.CVE_LOCALIDAD &&   localidade.CODIGO_POSTAL_LC == account.CODIGO_POSTAL" (change)="onChange()">
+                      <ion-option (change)="onChange()" [value]="localidade" [selected]="localidade.CVE_LOCALIDAD == account.CVE_LOCALIDAD   ">{{localidade.LOCALIDAD_NOMBRE}}, {{localidade.MUNICIPIO}}</ion-option>
+                    </div>
+                    <div *ngIf="account.CVE_LOCALIDAD==null &&   localidade.CODIGO_POSTAL_LC == account.CODIGO_POSTAL" (change)="onChange()">
+                        <ion-option (change)="onChange()" [value]="localidade" [selected]="localidade.CVE_LOCALIDAD == account.CVE_LOCALIDAD   ">{{localidade.LOCALIDAD_NOMBRE}}, {{localidade.MUNICIPIO}}</ion-option>
+                      </div>
+                  </div> 
+      
+                </ion-select> -->
+
+                <ion-select  [(ngModel)]="account.CVE_LOCALIDADS" #C (ionChange)="onChange()" interface="action-sheet">
+                    <div *ngFor="let localidade of cp "> 
+                     
+                        <div *ngIf="account.CVE_LOCALIDAD &&   localidade.CODIGO_POSTAL_LC == account.CODIGO_POSTAL" (ionChange)="onChange()">
+                          <ion-option (ionChange)="onChange()" [value]="localidade" [selected]="localidade.CVE_LOCALIDAD == account.CVE_LOCALIDAD   ">{{localidade.LOCALIDAD_NOMBRE}}, {{localidade.MUNICIPIO}}</ion-option>
+                        </div>
+                        <div *ngIf="account.CVE_LOCALIDAD==null &&   localidade.CODIGO_POSTAL_LC == account.CODIGO_POSTAL" (ionChange)="onChange()">
+                            <ion-option (ionChange)="onChange()" [value]="localidade" [selected]="localidade.CVE_LOCALIDAD == account.CVE_LOCALIDAD   ">{{localidade.LOCALIDAD_NOMBRE}}, {{localidade.MUNICIPIO}}</ion-option>
+                          </div>
+                      </div> 
+                  </ion-select>
+
+                
+              </ion-item>
+
+
+
+ 
+
+
+
+        <!-- <ion-item>
+            <ion-label floating *ngIf="account.CODIGO_POSTAL">
+              <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+              <b>CODIGO POSTAL:</b>
+            </ion-label>
+            <ion-label floating *ngIf="!account.CODIGO_POSTAL">
+              <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+              <b> CODIGO POSTAL ES REQUERIDO:</b>
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="account.CODIGO_POSTAL" name="CODIGO_POSTAL"></ion-input>
+          </ion-item> -->
+
+        <ion-item>
+          <ion-label floating *ngIf="account.CELULAR">
+            <ion-icon name="phone-portrait" item-start style="color: #199997"></ion-icon>
+            <b>CELULAR:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.CELULAR">
+            <ion-icon name="home" item-start style="color: #689500"></ion-icon>
+            <b> CELULAR ES OPCIONAL:</b>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="account.CELULAR" name="CELULAR" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.CELULARmessage" style="color: #950000">{{ account.CELULARmessage }}</ion-label>
+
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating *ngIf="account.TELEFONO">
+            <ion-icon name="call" item-start style="color: #199997"></ion-icon>
+            <b>TELEFONO:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.TELEFONO">
+            <ion-icon name="home" item-start style="color: #689500"></ion-icon>
+            <b> TELEFONO ES OPCIONAL:</b>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="account.TELEFONO" name="TELEFONO" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.TELEFONOmessage" style="color: #950000">{{ account.TELEFONOmessage }}</ion-label>
+
+        </ion-item>
+        <ion-item>
+          <ion-label floating *ngIf="account.E_MAIL">
+            <ion-icon name="mail" item-start style="color: #199997"></ion-icon>
+            <b>CORREO:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.E_MAIL">
+            <ion-icon name="mail" item-start style="color: #7c0400"></ion-icon>
+            <b>CORREO ES REQUERIDO:</b>
+          </ion-label>
+          <ion-input type="email" [(ngModel)]="account.E_MAIL" name="E_MAIL" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.E_MAILmessage" style="color: #950000">{{ account.E_MAILmessage }}</ion-label>
+
+        </ion-item>
+
+
+
+        <ion-item *ngIf="   account.CVE_RED_SOCIAL || account.CVE_RED_SOCIAL == 0  ">
+          <ion-label floating *ngIf="account.CVE_RED_SOCIAL">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon>
+            <b> RED SOCIAL:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.CVE_RED_SOCIAL">
+            <ion-icon name="home" item-start style="color: #950000"></ion-icon>
+            <b> RED SOCIALIO ES REQUERIDO:</b>
+          </ion-label> <br>
+          <ion-select [(ngModel)]="account.CVE_RED_SOCIAL">
+
+            <div *ngFor="let rede of redes">
+
+
+              <ion-option [value]="rede.CVE_RED_SOCIAL" [selected]="account.CVE_RED_SOCIAL ==  rede.CVE_RED_SOCIAL">{{rede.RED_SOCIAL}}</ion-option>
+
+            </div>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating *ngIf="account.RED_SOCIAL">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon> <b>RED SOCIAL:</b>
+          </ion-label>
+          <ion-label floating *ngIf="!account.RED_SOCIAL">
+            <ion-icon name="home" item-start style="color: #199997"></ion-icon> <b>RED SOCIAL:</b>
+          </ion-label>
+
+          <!-- <ion-label floating *ngIf="!account.RED_SOCIAL"> <ion-icon name="home" item-start style="color: #950000"></ion-icon>  <b>RED SOCIAL ES REQUERIDO:</b> </ion-label> -->
+          <ion-input type="text" [(ngModel)]="account.RED_SOCIAL" name="RED_SOCIAL" #C (ionChange)="onChange()"></ion-input>
+          <ion-label *ngIf="account.RED_SOCIALmessage" style="color: #950000">{{ account.RED_SOCIALmessage }}</ion-label>
+
+        </ion-item>
+
+      </ion-grid>
+
+
+      <!-- <ion-card align="center" (click)="UpdateData()" style=" background: #199997 ">
+  
+          <div class="card-title" style=" color: #fff" align="center">enviar</div>
+
+          
+  
+        </ion-card> -->
+      <ion-grid>
+        <ion-row>
+        
+          <ion-col >
+            <button ion-button block style=" background: #199997 ; color: #fff" (click)="UpdateData()">
+              Actualizar  <ion-icon name="refresh-circle"></ion-icon>
+            </button>
+          </ion-col>
+
+          <ion-col >
+              <button ion-button block style=" background: #199997 ; color: #fff" (click)="consitunar()">
+                Continuar   <ion-icon name="arrow-forward"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button block style=" background: #bb0d0d ; color: #fff" (click)="cancel()">
+                  Cancelar <ion-icon name="close-circle"></ion-icon>
+                </button>
+              </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

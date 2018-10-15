@@ -1,0 +1,79 @@
+ 
+
+
+<ion-content padding  > 
+       
+  <div class="login-content">
+<br><br><br>
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo">
+        <img src="assets/img/edomex03.jpg" width="200px" height="200px"  style=" align-content:'center'"  (click)="scanCode()" >  
+      </div>
+      <h2 ion-text   color="verde">
+        <strong>  </strong>  
+      </h2>
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start  style="color: #bb0d0d"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input type="email"  [(ngModel)]="account.email" name="email" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start style="color: #bb0d0d"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+    </form>
+
+    <!-- <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p> -->
+
+    <div>
+      <button ion-button icon-start block color="rojo" tappable (click)="doLogin()">
+         
+        ENTRAR <ion-icon name="log-in"></ion-icon>
+      </button>
+
+      <!-- <button ion-button icon-start block color="dark" tappable (click)="scanCode()">
+        <ion-icon name="log-in"></ion-icon>
+       scanner
+      </button>
+    
+
+      <p text-center ion-text color="secondary">Or Sign in with:</p> -->
+
+      <!-- <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn-facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn-twitter">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn-gplus">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+
+    </div>
+
+
+    
+
+  </div>
+</ion-content>

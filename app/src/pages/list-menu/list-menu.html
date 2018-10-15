@@ -1,0 +1,106 @@
+ 
+
+  <ion-content style="color: #199997; ">
+
+
+    <ion-list class="user-list">
+      <button ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
+        <ion-icon item-left [name]="menuItem.icono" style="color: #199997;    "></ion-icon>
+        <span ion-text style="color: #199997; align-content: center ">{{menuItem.title}}</span>
+      </button>
+    </ion-list>
+
+    <ion-list class="user-list">
+      <button ion-item menuClose class="text-1x" (click)="logout()">
+        <ion-icon item-left name="power" style="color: #199997;    "></ion-icon>
+        <span ion-text style="color: #199997; align-content: center ">Salir</span>
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>
+
+<ion-header style="color: #199997; background: #199997">
+
+  <ion-navbar style="color: #199997; background: #199997">
+    <ion-buttons>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end (click)="logout()">
+      <button ion-button icon-only>
+        <ion-icon name="power"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="programasSelect">
+    <img src="assets/img/logo15429967.png" />
+    <ion-card-content>
+      <ion-grid>
+        <ion-row align="center">
+          <ion-col col-6 align="center">
+
+            <ion-card align="center" style=" background: #199997 ">
+              <ion-icon name="home" style="font-size: 40px; color: #fff" align="center"></ion-icon>
+              <div class="card-title" style=" color: #fff" align="center">Inicio</div>
+            </ion-card>
+
+          </ion-col>
+          <ion-col col-6 align="center">
+
+            <ion-card align="center" (click)="scanCode()" style=" background: #199997 ">
+              <ion-icon name="qr-scanner" style="font-size: 40px; color: #fff" align="center"></ion-icon>
+              <!-- <img src="assets/img/descarga.png"/> -->
+              <div class="card-title" style=" color: #fff" align="center">QR</div>
+              <!-- <div class="card-subtitle" align="center">41 Listings</div> -->
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-6>
+            <ion-card align="center" style=" background: #199997 " (click)="logout()">
+              <ion-icon name="power" style="font-size: 40px; color: #fff" align="center"></ion-icon>
+              <div class="card-title" style="color: #fff " align="center">Salir</div>
+            </ion-card>
+          </ion-col>
+          <ion-col col-6>
+            <ion-card align="center" style=" background: #199997  ">
+              <ion-icon name="speedometer" style="font-size: 40px; color: #fff" align="center"></ion-icon>
+              <div class="card-title" style=" color: #fff" align="center">Estadisticas</div>
+            </ion-card> 
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!programasSelect">
+    <img src="assets/img/logo15429967.png" />
+
+    <h2>Selecciona Programa</h2>
+
+    <div *ngFor="let itemProgrma of  programas">
+      <button ion-button block style=" background: #199997 ; color: #fff" (click)="Programa(itemProgrma)">
+        {{ itemProgrma.PROGRAMANOMBRECORTO }}
+      </button>
+    </div>
+
+  </ion-card>
+
+
+
+
+</ion-content>

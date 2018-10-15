@@ -1,0 +1,70 @@
+page-item-beneficio {
+  .profile-image-wrapper {
+    text-align: center;
+    margin: 20px 0;
+
+    .profile-image {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+
+      display: inline-block;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .profile-image-placeholder {
+      display: inline-block;
+
+      background-color: #eee;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+
+      font-size: 12px;
+
+      ion-icon {
+        font-size: 44px;
+        margin-bottom: -10px;
+        margin-top: 10px;
+      }
+    }
+  }
+  #notification-button {            
+    position: relative;
+    width: 30px;
+    top:1px;
+    right: 1px;
+    overflow: visible!important;
+  }
+  
+  
+  #notifications-total {
+    background-color: rgb(0, 174, 255);
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border-radius: 80%;
+  }
+  
+  #notifications-entregados {
+    background-color: red;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border-radius: 100%;
+  }
+  
+  #notifications-pendientes {
+    background-color: rgb(38, 255, 0);
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border-radius: 90%;
+  }
+
+  
+  
+}

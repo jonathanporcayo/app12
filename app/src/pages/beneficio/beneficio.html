@@ -1,0 +1,198 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Entregar</ion-title>
+    <!-- <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <span color="primary" showWhen="ios">
+         Atras
+        </span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <!-- <ion-buttons end>
+      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+        <span color="primary" showWhen="ios">
+        guardar
+        </span>
+        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content> 
+  
+<h2 align="center">ENTREGAR</h2> 
+    
+  <!-- <ion-list>
+    <ion-item *ngFor="let d of item; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+         
+      <h3>
+        {{d.APOYONOMBRE}}
+        <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+      </h3>
+      <div *ngIf="isGroupShown(i)"  > 
+          <div *ngIf="i<d.APOYOTOTALENTREGAS">
+              <ion-checkbox  > {{i}} </ion-checkbox>
+          </div> 
+        <div *ngFor="let e of dataEntregas"> 
+          
+          <ion-checkbox  > </ion-checkbox>  <div *ngIf="d.APOYOID_IV == e.APOYOID_IV" >{{e.APOYOID_IV}}</div>
+        </div> 
+      </div>
+    </ion-item>
+  </ion-list> -->
+
+  <!-- <ion-list>
+      <ion-item *ngFor="let d of item; let i=index" >
+           
+        <h3> {{ d.APOYOTOTALENTREGAS }}  {{d.APOYONOMBRE}} </h3>  
+        <div  *ngIf="d.APOYOTOTALENTREGAS  > 0 "> 
+             
+          <div *ngFor="let e of dataEntregas"> 
+            
+             <div *ngIf="d.APOYOID_IV == e.APOYOID_IV" >    {{e.APOYONOMBRE}} 
+             
+              <br> Entregados :{{e.TOTAL}}  / 
+              
+              <span    *ngIf="d.APOYOTOTALENTREGAS - e.TOTAL > 0 " >  te quedan {{ d.APOYOTOTALENTREGAS - e.TOTAL}}</span> 
+              <div   *ngIf="d.APOYOTOTALENTREGAS - e.TOTAL > 0 ">   
+                    <h4>Sleccione Entregas</h4>  
+                       <div *ngFor="let beneficio of beneficios">
+                          <div *ngIf="d.APOYOID_IV == beneficio.APOYOID_IV" >
+                              {{ beneficio.APOYOID_IV }} {{ beneficio.id }}
+                             <span> <ion-checkbox color="dark" class="form-check-input" ></ion-checkbox> {{d.APOYONOMBRE}}</span>
+                             <h4>Sleccione Entregas</h4>  
+                    <div *ngFor="let Car of beneficios">
+                        <div *ngIf="d.APOYOID_IV == Car.APOYOID_IV">
+                          <input type="checkbox" (change)="onChange(Car.id,d,e, $event.target.checked)"> {{Car.APOYOID_IV}}<br>
+                        </div>
+                      </div>  
+                            </div>
+                         </div>
+ 
+
+                        
+                    
+                      </div>  
+                 
+             </div>
+          </div> 
+        </div>
+            
+     
+      </ion-item>
+    </ion-list> -->
+
+     
+
+    <ion-list>
+        <div *ngFor="let d of item; let i=index" >
+            <ion-item *ngIf=" d.APOYOTOTALENTREGAS > 0">
+            <div *ngFor="let entregas of dataEntregas">
+                <div *ngIf="d.APOYOID_IV == entregas.APOYOID_IV ">
+                    
+                     
+
+                      <ion-grid>
+                          <ion-row>
+                              <ion-col>
+                                <div><h3> {{d.APOYONOMBRE}} </h3>  </div>
+                              </ion-col>
+                               
+                            </ion-row>
+                          <ion-row>
+                              <ion-col>
+                                <div><p>Total</p></div>
+                              </ion-col>
+                              <ion-col>
+                                <div><p>Entregados</p></div>
+                              </ion-col>
+                              <ion-col>
+                                <div><p>Pendientes</p></div>
+                              </ion-col>
+                            </ion-row>
+                          <ion-row>
+                            <ion-col>
+                              <div>
+                                  <button id="notification-button" ion-button clear> 
+           
+                                      <ion-icon name="archive"  style=" color: rgb(114, 65, 10);"> 
+                                          <ion-badge id="notifications-total" color="danger">{{ d.APOYOTOTALENTREGAS }}</ion-badge>
+                                        </ion-icon>               
+                                    </button>
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>   <button id="notification-button" ion-button clear>
+              
+                                  <ion-icon name="share">
+                                    <ion-badge id="notifications-entregados" color="danger"> {{entregas.TOTAL}}</ion-badge>
+                                  </ion-icon>              
+                              </button>
+                            </div>
+                            </ion-col>
+                            <ion-col>
+                              <div> 
+                                 <button id="notification-button" ion-button clear>
+                    
+                                  <ion-icon name="share-alt" >
+                                    <ion-badge id="notifications-pendientes" color="danger">  {{ d.APOYOTOTALENTREGAS - entregas.TOTAL}}</ion-badge>
+                                  </ion-icon>              
+                              </button>
+                            </div>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                
+               
+              
+                
+
+            </div>
+            </div>
+             
+         
+               
+            <div *ngFor="let Car of beneficios ;  let i=index"> 
+          
+               
+                <div *ngIf="    d.APOYOID_IV == Car.APOYOID_IV   " > 
+         
+                  
+                  <input  type="checkbox" (change)="onChange(Car.id,d, $event.target.checked)"> {{d.APOYONOMBRE}}<br>
+                            
+                   
+                       
+                      
+                       
+                   
+                    
+                      
+                    
+                  </div>
+                  </div>  
+       
+        </ion-item>
+        </div>
+      </ion-list>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block style=" background: #bb0d0d ; color: #fff" (click)="cancel()">
+          Cancelar
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block style=" background: #199997 ; color: #fff" (click)="Entregar()">
+          ENTREGAR
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content> 

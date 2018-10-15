@@ -1,0 +1,144 @@
+<ion-header color="dark">
+
+  <ion-navbar color="dark">
+    <ion-title>Info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-card>
+
+    <h1 align="center">
+     TARJETA NO EXISTE : {{ account.TARJETA }}
+    </h1>
+<div *ngIf="!dataUser"> 
+    <section class="bg-primarydss">
+  
+        <br>
+        <ion-avatar item-start style="  margin: auto;  width: 50%;   padding: 10px;   width: 150px;  height: 150px;">
+            <img src="assets/img/avatar.png">
+          </ion-avatar>
+        <br><br>
+    
+    
+      </section>
+      <h1 align="center">BUSCAR USUARIO</h1>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>NOMBRE:</b>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="account.NOMBRE" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>APELLIDO PATERNO:</b>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="account.PRIMER_APELLIDO" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>APELLIDO MATERNO:</b>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="account.SEGUNDO_APELLIDO" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar" item-start style="color: #199997"></ion-icon> <b>FECHA NACIMIENTO:</b>
+      </ion-label>
+      <!-- <ion-input type="date" [(ngModel)]="account.FECHA_NACIMIENTO" name="name"></ion-input> -->
+      <ion-datetime displayFormat="D MM YYYY" min="1900" max="2050" [(ngModel)]="account.FECHA_NACIMIENTO"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="contact" item-start style="color: #199997"></ion-icon> <b>SEXO:</b>
+      </ion-label> 
+      <ion-select [(ngModel)]="account.SEXO"> 
+              <ion-option   [value]="H">HOMBRE</ion-option>
+              <ion-option   [value]="M">MUJER</ion-option> 
+        </ion-select>
+    </ion-item>
+    <!-- <ion-card align="center" (click)="Buscar()" style=" background: #199997 ">
+
+      <div class="card-title" style=" color: #fff" align="center">enviar</div>
+
+    </ion-card> -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block style=" background: #bb0d0d ; color: #fff" (click)="cancel()">
+            Cancelar
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block style=" background: #199997 ; color: #fff" (click)="Buscar()">
+            Buscar
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
+
+    <div *ngIf="dataUser"> 
+        <section class="bg-primarydss"> 
+            <br>
+            <ion-avatar item-start style="  margin: auto;  width: 50%;   padding: 10px;   width: 150px;  height: 150px;">
+                <img src="assets/img/avatar.png">
+              </ion-avatar>
+            <br><br> 
+        
+          </section>
+          <div *ngIf="account.GXQRPERSONAIDTARJETA==null ">
+              <h1 align="center">DATOS DE USUARIO </h1> 
+              <ion-item> 
+                  <h2>  {{ dataUser.NOMBRE }}  {{ dataUser.PRIMER_APELLIDO }} {{ dataUser.SEGUNDO_APELLIDO }}</h2>
+                  <p>{{ dataUser.FECHA_NACIMIENTO }}</p>
+                </ion-item>  
+                <ion-row>
+                    <h1 align="center" > ¿DESEA ASIGNAR TARJETA?</h1>
+                  <ion-col>
+                    <button ion-button icon-start clear small  (click)="AsignarID()" style=" background: #199997 ">
+          
+                        <div class="card-title" style=" color: #fff" align="center">SI</div>
+                    </button>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button icon-start clear small (click)="no()" style=" background: #950000 ">
+          
+                        <div class="card-title" style=" color: #fff" align="center">NO</div>
+                    </button>
+                  </ion-col>
+                 
+                </ion-row> 
+          </div>
+
+          <div *ngIf="account.GXQRPERSONAIDTARJETA !=null ">
+              <h1 align="center">DATOS DE USUARIO </h1> 
+              <ion-item> 
+                  <h2>  {{ dataUser.NOMBRE }}  {{ dataUser.PRIMER_APELLIDO }} {{ dataUser.SEGUNDO_APELLIDO }}</h2>
+                  <p>{{ dataUser.FECHA_NACIMIENTO }}</p>
+                </ion-item>  
+                <ion-row>
+                    <h1 align="center" >TU TARJETA ES: {{ dataUser.GXQRPERSONAIDTARJETA }} </h1>
+                  
+                  <ion-col>
+                    <button ion-button icon-start clear small (click)="no()" style=" background: #950000 ">
+          
+                        <div class="card-title" style=" color: #fff" align="center">Regresar</div>
+                    </button>
+                  </ion-col>
+                 
+                </ion-row> 
+          </div>
+       
+         
+    </div>
+  </ion-card>
+
+</ion-content>
